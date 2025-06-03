@@ -1,7 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-/addons/dialogic*
+# /addons/dialogic* # Some Customizations have been made
 /addons/script-ide
 /addons/resources_spreadsheet_view
 /tmp
