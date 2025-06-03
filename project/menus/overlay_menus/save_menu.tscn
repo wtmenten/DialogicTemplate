@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://qv14cgvj0c00"]
+
+[ext_resource type="Script" uid="uid://db45u17rxbub1" path="res://project/menus/overlay_menus/save_menu.gd" id="1_u7rlv"]
+
+[node name="SaveMenu" type="MarginContainer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_u7rlv")
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="SaveSlots" type="GridContainer" parent="Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 5
+columns = 2

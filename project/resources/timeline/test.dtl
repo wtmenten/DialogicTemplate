@@ -1,0 +1,17 @@
+This is a test timeline
+second dialog
+- choice 1
+	set {c1} = 1.0
+- choice 2
+	set {c1} = 2.0
+- choice 3
+	set {c1} = 3.0
+if {c1} == 1.0:
+	condition 1 branch
+elif {c1} == 2.0:
+	condition 2 branch
+else:
+	\else branch
+back to main branch
+jump test_cg_1/
+end

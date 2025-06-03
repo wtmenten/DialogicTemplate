@@ -1,0 +1,110 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhs7efyb3ten2"]
+
+[ext_resource type="Script" uid="uid://cvb8jyb8xdnri" path="res://project/menus/warning_popup.gd" id="1_xvics"]
+
+[node name="Popups" type="Control"]
+z_index = 1
+y_sort_enabled = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="UnsavedWarning" type="Popup" parent="." groups=["scene_manager_entity_nodes"]]
+size = Vector2i(275, 100)
+script = ExtResource("1_xvics")
+metadata/entity_name = "UnsavedWarningPopup"
+
+[node name="WarningPanel" type="Panel" parent="UnsavedWarning"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UnsavedWarning/WarningPanel"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="Label" type="Label" parent="UnsavedWarning/WarningPanel/VBoxContainer"]
+modulate = Color(0.537255, 0.329412, 0, 1)
+layout_mode = 2
+text = "Warning!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="UnsavedWarning/WarningPanel/VBoxContainer"]
+modulate = Color(0.6, 0.470588, 0.247059, 1)
+layout_mode = 2
+text = "You will loose your unsaved progress!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UnsavedWarning/WarningPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Ok" type="Button" parent="UnsavedWarning/WarningPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "I feel safe."
+flat = true
+
+[node name="Back" type="Button" parent="UnsavedWarning/WarningPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Oh wait!"
+flat = true
+
+[node name="DeleteSaveWarning" type="Popup" parent="." groups=["scene_manager_entity_nodes"]]
+size = Vector2i(275, 100)
+script = ExtResource("1_xvics")
+metadata/entity_name = "DeleteSaveWarningPopup"
+
+[node name="WarningPanel" type="Panel" parent="DeleteSaveWarning"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeleteSaveWarning/WarningPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="DeleteSaveWarning/WarningPanel/VBoxContainer"]
+modulate = Color(0.537255, 0.329412, 0, 1)
+layout_mode = 2
+text = "Warning!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="DeleteSaveWarning/WarningPanel/VBoxContainer"]
+modulate = Color(0.6, 0.470588, 0.247059, 1)
+layout_mode = 2
+text = "Deleting saves cannot be undone!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeleteSaveWarning/WarningPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Ok" type="Button" parent="DeleteSaveWarning/WarningPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Do it!"
+flat = true
+
+[node name="Back" type="Button" parent="DeleteSaveWarning/WarningPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Oh wait!"
+flat = true
+
+[connection signal="pressed" from="UnsavedWarning/WarningPanel/VBoxContainer/HBoxContainer/Ok" to="UnsavedWarning" method="_on_Ok_pressed"]
+[connection signal="pressed" from="UnsavedWarning/WarningPanel/VBoxContainer/HBoxContainer/Back" to="UnsavedWarning" method="_on_Back_pressed"]
+[connection signal="pressed" from="DeleteSaveWarning/WarningPanel/VBoxContainer/HBoxContainer/Ok" to="DeleteSaveWarning" method="_on_Ok_pressed"]
+[connection signal="pressed" from="DeleteSaveWarning/WarningPanel/VBoxContainer/HBoxContainer/Back" to="DeleteSaveWarning" method="_on_Back_pressed"]

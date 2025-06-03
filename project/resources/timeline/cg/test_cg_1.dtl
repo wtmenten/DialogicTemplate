@@ -1,0 +1,7 @@
+cg_timeline 1 text 1
+[background fade="0.0"]
+bg 1
+[background fade="0.0"]
+bg 2
+end cg_timeline 1
+return

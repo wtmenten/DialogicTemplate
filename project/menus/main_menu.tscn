@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbrh5sdexunuj"]
+
+[ext_resource type="Texture2D" uid="uid://daoai7grphjht" path="res://project/resources/img/BackgroundImage.jpg" id="1_b0prt"]
+[ext_resource type="Script" uid="uid://bwh613yqihi75" path="res://project/menus/main_menu.gd" id="1_tks4g"]
+[ext_resource type="AudioStream" uid="uid://ctjyggf5q50ia" path="res://project/resources/music/Menu_BackgroundMusic_Next to You.ogg" id="3_mqxpk"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tks4g")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.223529, 0.309804, 1)
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_b0prt")
+expand_mode = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 0
+alignment = 1
+
+[node name="Title" type="Label" parent="Buttons"]
+layout_mode = 2
+text = "Game of tests"
+
+[node name="Title2" type="Label" parent="Buttons"]
+layout_mode = 2
+text = " "
+
+[node name="NewGame_Button" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "New Game"
+flat = true
+
+[node name="LoadGame_Button" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Load Game"
+flat = true
+
+[node name="Settings_Button" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+flat = true
+
+[node name="Gallery_Button" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Gallery"
+flat = true
+
+[node name="About_Button" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "About"
+flat = true
+
+[node name="Quit_Button" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+flat = true
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mqxpk")
+volume_db = -0.25
+autoplay = true
+
+[connection signal="pressed" from="Buttons/NewGame_Button" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Buttons/LoadGame_Button" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="Buttons/Settings_Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Buttons/Gallery_Button" to="." method="_on_gallery_button_pressed"]
+[connection signal="pressed" from="Buttons/About_Button" to="." method="_on_about_button_pressed"]
+[connection signal="pressed" from="Buttons/Quit_Button" to="." method="_on_quit_button_pressed"]

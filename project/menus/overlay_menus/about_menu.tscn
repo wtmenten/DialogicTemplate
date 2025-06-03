@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp4gamhbar1tb"]
+
+[ext_resource type="Script" uid="uid://cpc524hn87kis" path="res://project/menus/overlay_menus/about_menu.gd" id="1_mvr0e"]
+
+[node name="AboutMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_mvr0e")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBox"]
+layout_mode = 2
+text = "This game was created to showcase the new dialogic saving system."
+horizontal_alignment = 1

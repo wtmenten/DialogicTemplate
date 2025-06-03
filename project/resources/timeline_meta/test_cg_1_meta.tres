@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TimelineMeta" load_steps=4 format=3 uid="uid://bd12mr36scw3g"]
+
+[ext_resource type="Script" uid="uid://d2sqtvnmv52ju" path="res://project/resources/timeline_meta.gd" id="1_dot2b"]
+[ext_resource type="Texture2D" uid="uid://bm4g4kvitpykq" path="res://project/resources/img/cg/thumbnails/test_cg_1.png" id="2_bcc7q"]
+[ext_resource type="Resource" uid="uid://d20mulcbii5yi" path="res://project/resources/timeline/cg/test_cg_1.dtl" id="3_52asl"]
+
+[resource]
+script = ExtResource("1_dot2b")
+timeline = ExtResource("3_52asl")
+timeline_type = 1
+user_label = ""
+thumbnail = ExtResource("2_bcc7q")
+dev_description = ""
+metadata/_custom_type_script = "uid://d2sqtvnmv52ju"

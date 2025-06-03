@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpieb3wovy5eh"]
+
+[ext_resource type="Script" uid="uid://bnthu3js3m05a" path="res://project/menus/overlay_menu.gd" id="1_kdyk7"]
+[ext_resource type="Texture2D" uid="uid://daoai7grphjht" path="res://project/resources/img/BackgroundImage.jpg" id="1_q43m6"]
+[ext_resource type="PackedScene" uid="uid://qv14cgvj0c00" path="res://project/menus/overlay_menus/save_menu.tscn" id="2_kdyk7"]
+[ext_resource type="PackedScene" uid="uid://c2pxbyi5fg2rl" path="res://project/menus/overlay_menus/load_menu.tscn" id="3_l315n"]
+[ext_resource type="PackedScene" uid="uid://y7a4ypu6ubs6" path="res://project/menus/overlay_menus/settings_menu.tscn" id="4_av30s"]
+[ext_resource type="PackedScene" uid="uid://bp4gamhbar1tb" path="res://project/menus/overlay_menus/about_menu.tscn" id="5_vps4b"]
+[ext_resource type="PackedScene" uid="uid://d14obb81dmye6" path="res://project/menus/overlay_menus/gallery_menu.tscn" id="6_m123w"]
+
+[node name="OverlayMenu" type="Control" node_paths=PackedStringArray("SubMenusContainer") groups=["scene_manager_entity_nodes"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kdyk7")
+SubMenusContainer = NodePath("HBoxContainer/MenuContent")
+metadata/entity_name = "OverlayMenu"
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.223529, 0.309804, 1)
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+modulate = Color(0.658824, 0.639216, 0.901961, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_q43m6")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MenuTitle" type="Label" parent="HBoxContainer/Buttons"]
+layout_mode = 2
+text = "Load menu"
+
+[node name="MainMenu_Button" type="Button" parent="HBoxContainer/Buttons"]
+layout_mode = 2
+text = "Main Menu"
+flat = true
+
+[node name="SaveMenu_Button" type="Button" parent="HBoxContainer/Buttons"]
+layout_mode = 2
+text = "Save Game"
+flat = true
+
+[node name="LoadMenu_Button" type="Button" parent="HBoxContainer/Buttons"]
+layout_mode = 2
+text = "Load Game"
+flat = true
+
+[node name="Settings_Button" type="Button" parent="HBoxContainer/Buttons"]
+layout_mode = 2
+text = "Settings"
+flat = true
+
+[node name="Gallery_Button" type="Button" parent="HBoxContainer/Buttons"]
+layout_mode = 2
+text = "Gallery"
+flat = true
+
+[node name="About_Button" type="Button" parent="HBoxContainer/Buttons"]
+layout_mode = 2
+text = "About"
+flat = true
+
+[node name="Quit_Button" type="Button" parent="HBoxContainer/Buttons"]
+layout_mode = 2
+text = "Quit"
+flat = true
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Buttons"]
+layout_mode = 2
+
+[node name="ResumeGame_Button" type="Button" parent="HBoxContainer/Buttons"]
+layout_mode = 2
+text = "Resume"
+flat = true
+
+[node name="MenuContent" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SaveMenu" parent="HBoxContainer/MenuContent" instance=ExtResource("2_kdyk7")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadMenu" parent="HBoxContainer/MenuContent" instance=ExtResource("3_l315n")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsMenu" parent="HBoxContainer/MenuContent" instance=ExtResource("4_av30s")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AboutMenu" parent="HBoxContainer/MenuContent" instance=ExtResource("5_vps4b")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GalleryMenu" parent="HBoxContainer/MenuContent" instance=ExtResource("6_m123w")]
+layout_mode = 1
+
+[connection signal="pressed" from="HBoxContainer/Buttons/MainMenu_Button" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/SaveMenu_Button" to="." method="_on_save_menu_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/LoadMenu_Button" to="." method="_on_load_menu_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/Settings_Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/Gallery_Button" to="." method="_on_gallery_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/About_Button" to="." method="_on_about_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/Quit_Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/ResumeGame_Button" to="." method="_on_resume_game_button_pressed"]

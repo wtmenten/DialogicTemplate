@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt12nat8guckv"]
+
+[ext_resource type="Script" uid="uid://ba4gabvhjwre0" path="res://project/menus/in_game_menu.gd" id="1_vpgk7"]
+
+[sub_resource type="FontFile" id="FontFile_nitnh"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_x7oyx"]
+Button/colors/font_color = Color(0.88, 0.88, 0.88, 1)
+Button/colors/font_color_disabled = Color(0.9, 0.9, 0.9, 0.2)
+Button/colors/font_color_hover = Color(0.94, 0.94, 0.94, 1)
+Button/colors/font_color_pressed = Color(1, 1, 1, 1)
+Button/constants/hseparation = 2
+Button/fonts/font = SubResource("FontFile_nitnh")
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[node name="InGameMenu" type="HBoxContainer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -22.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_x7oyx")
+alignment = 1
+script = ExtResource("1_vpgk7")
+
+[node name="Save_Button" type="Button" parent="."]
+layout_mode = 2
+text = "Save"
+flat = true
+
+[node name="Load_Button" type="Button" parent="."]
+layout_mode = 2
+text = "Load"
+flat = true
+
+[node name="History_Button" type="Button" parent="."]
+layout_mode = 2
+text = "History"
+flat = true
+
+[node name="Settings_Button" type="Button" parent="."]
+layout_mode = 2
+text = "Settings"
+flat = true
+
+[connection signal="pressed" from="Save_Button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Load_Button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="History_Button" to="." method="_on_history_button_pressed"]
+[connection signal="pressed" from="Settings_Button" to="." method="_on_settings_button_pressed"]

@@ -1,0 +1,154 @@
+[gd_scene load_steps=2 format=3 uid="uid://y7a4ypu6ubs6"]
+
+[ext_resource type="Script" uid="uid://dvt2jjfvdf3px" path="res://project/menus/overlay_menus/settings_menu.gd" id="1_nqtcx"]
+
+[node name="SettingsMenu" type="MarginContainer" groups=["scene_manager_entity_nodes"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_nqtcx")
+metadata/entity_name = "SettingsMenu"
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Display" type="VBoxContainer" parent="HBox/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/VBox/Display"]
+layout_mode = 2
+text = "Display"
+
+[node name="DisplaySelect" type="OptionButton" parent="HBox/VBox/Display"]
+layout_mode = 2
+flat = true
+selected = 0
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBox/VBox"]
+layout_mode = 2
+
+[node name="Mute" type="VBoxContainer" parent="HBox/VBox/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/VBox/HBoxContainer/Mute"]
+layout_mode = 2
+text = "Mute"
+
+[node name="CheckBox" type="CheckBox" parent="HBox/VBox/HBoxContainer/Mute"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VSeparator" type="VSeparator" parent="HBox/VBox/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="OverallVolume" type="VBoxContainer" parent="HBox/VBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBox/VBox/HBoxContainer/OverallVolume"]
+layout_mode = 2
+text = "Volume"
+
+[node name="Slider" type="HSlider" parent="HBox/VBox/HBoxContainer/OverallVolume"]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.01
+value = 0.8
+
+[node name="TextSpeed" type="VBoxContainer" parent="HBox/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/VBox/TextSpeed"]
+layout_mode = 2
+text = "Text Speed"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBox/VBox/TextSpeed"]
+layout_mode = 2
+
+[node name="Fast" type="Label" parent="HBox/VBox/TextSpeed/HBoxContainer"]
+layout_mode = 2
+text = "Fast"
+
+[node name="HSlider" type="HSlider" parent="HBox/VBox/TextSpeed/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.1
+max_value = 10.0
+step = 0.01
+value = 1.0
+
+[node name="Slow" type="Label" parent="HBox/VBox/TextSpeed/HBoxContainer"]
+layout_mode = 2
+text = "Slow"
+
+[node name="AutoAdvance" type="HBoxContainer" parent="HBox/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/VBox/AutoAdvance"]
+layout_mode = 2
+text = "Auto Advance"
+
+[node name="CheckBox" type="CheckBox" parent="HBox/VBox/AutoAdvance"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SkipSeenText" type="HBoxContainer" parent="HBox/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/VBox/SkipSeenText"]
+layout_mode = 2
+text = "Skip Seen Text"
+
+[node name="CheckBox" type="CheckBox" parent="HBox/VBox/SkipSeenText"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SkipUnseenText" type="HBoxContainer" parent="HBox/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/VBox/SkipUnseenText"]
+layout_mode = 2
+text = "Skip Unseen Text"
+
+[node name="CheckBox" type="CheckBox" parent="HBox/VBox/SkipUnseenText"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VSeparator" type="VSeparator" parent="HBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBox2" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="item_selected" from="HBox/VBox/Display/DisplaySelect" to="." method="_on_DisplaySelect_item_selected"]
+[connection signal="toggled" from="HBox/VBox/HBoxContainer/Mute/CheckBox" to="." method="_on_mute_button_toggled"]
+[connection signal="value_changed" from="HBox/VBox/HBoxContainer/OverallVolume/Slider" to="." method="_on_volume_value_changed"]
+[connection signal="value_changed" from="HBox/VBox/TextSpeed/HBoxContainer/HSlider" to="." method="_on_text_speed_value_changed"]
+[connection signal="toggled" from="HBox/VBox/AutoAdvance/CheckBox" to="." method="_on_advance_button_toggled"]
+[connection signal="toggled" from="HBox/VBox/SkipSeenText/CheckBox" to="." method="_on_skip_seen_button_toggled"]
+[connection signal="toggled" from="HBox/VBox/SkipUnseenText/CheckBox" to="." method="_on_skip_unseen_button_toggled"]
